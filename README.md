@@ -139,6 +139,7 @@ or
 •	A Click “OK” in the “nclaunch: Open Design Directory” window as shown in below figure 
 ![WhatsApp Image 2025-05-16 at 10 27 19 PM (2)](https://github.com/user-attachments/assets/0b17c8ce-dbed-4cad-9597-3cea07e06ae0)
 
+![WhatsApp Image 2025-05-16 at 10 27 19 PM (1)](https://github.com/user-attachments/assets/3be2f793-2e06-40a4-b45e-394fefacb862)
 
 ### Fig 6: Selection of Don’t include any libraries
 
@@ -149,7 +150,6 @@ or
 	Worklib is the directory where all the compiled codes are stored while Snapshot will have output of elaboration which in turn goes for simulation .
 
 	To perform the function simulation, the following three steps are involved Compilation, Elaboration and Simulation. 
-![WhatsApp Image 2025-05-16 at 10 27 19 PM (2)](https://github.com/user-attachments/assets/a3b72270-70f2-4e06-ab33-097b1610052d)
 
 ### Fig 7: Nclaunch Window
 
