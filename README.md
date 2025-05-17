@@ -39,8 +39,44 @@ COUT=(A&B) | (CIN&(A^B))
 
 ### Fig 2:Diagram of 4 Bit Adder
 
-## Creating Source Codes 
 
+## Creating Source Codes 
+```
+full adder
+ module full_adder(A,B,CIN,S,COUT);
+ input A,B,CIN;
+ output S,COUT;
+ assign S=A^B^CIN;
+ assign COUT=(A&B) | (CIN&(A^B));
+ endmodule
+ 2.full adder 4bit
+ module fulladd_4bit(A,B,C0,S,C4);
+ input [3:0] A,B;
+ input C0;
+ output [3:0] S;
+ output C4;
+ wire C1,C2,C3;
+ full_adder fa0 (A[0],B[0],C0,S[0],C1);
+ full_adder fa1 (A[1],B[1],C1,S[1],C2);
+ full_adder fa2 (A[2],B[2],C2,S[2],C3);
+ full_adder fa3 (A[3],B[3],C3,S[3],C4);
+ endmodule
+ 3.full adder 4bit test
+ module test_4bit;
+ reg [3:0] A;
+ reg [3:0] B; reg C0;
+ wire [3:0] S; wire C4;
+ fulladd_4bit dut (A,B,C0,S,C4);
+ initial
+ begin
+ A=4'b0011;B=4'b0011;C0=1'b0;
+ #10; A=4'b1011;B=4'b0111;C0=1'b1;
+ #10; A=4'b1111;B=4'b1111;C0=1'b1;
+ #10;
+ end initial
+ #50 $finish;
+ endmodule
+```
 	In the Terminal, type gedit <filename>.v (ex: gedit 4bitadder.v). 
 
 	A Blank Document opens up into which the following source code can be typed down. 
@@ -73,6 +109,7 @@ Developed by: Register Number*/
 	After this you can see the window like below 
 
 ### Fig 3:Invoke the Cadence Environment
+![WhatsApp Image 2025-05-16 at 5 47 40 PM (11)](https://github.com/user-attachments/assets/a79cc09f-0252-4d0c-9e10-0bc541d38ff6)
 
 	To Launch Simulation tool 
 
@@ -85,6 +122,7 @@ or
 	It will invoke the nclaunch window for functional simulation we can compile,elaborate and simulate it using Multiple Step .
 
 ### Fig 4:Setting Multi-step simulation
+![WhatsApp Image 2025-05-16 at 5 47 40 PM (12)](https://github.com/user-attachments/assets/a4d01c4d-82fe-4a67-a522-cf4db01adf6f)
 
 	Select Multiple Step and then select “Create cds.lib File” .
 
@@ -111,8 +149,10 @@ or
 	Worklib is the directory where all the compiled codes are stored while Snapshot will have output of elaboration which in turn goes for simulation .
 
 	To perform the function simulation, the following three steps are involved Compilation, Elaboration and Simulation. 
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (1)](https://github.com/user-attachments/assets/ce247bb3-e771-409a-a170-7f1b3c5f3231)
 
 ### Fig 7: Nclaunch Window
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (2)](https://github.com/user-attachments/assets/4ba66768-fda3-410f-b942-4c39e11b9cc7)
 
 ## Step 1: Compilation:– Process to check the correct Verilog language syntax and usage 
 
@@ -132,6 +172,7 @@ i.e Cadence IES command for compile: ncverilog +access+rwc -compile fa.v
 Worklib is the directory where all the compiled codes are stored while Snapshot will have output of elaboration which in turn goes for simulation
 
 ### Fig 8: Compiled database in worklib
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (4)](https://github.com/user-attachments/assets/95583f85-2289-42dc-a232-4f66467c45ca)
 
 	After compilation it will come under worklib you can see in right side window
 
@@ -155,6 +196,7 @@ i.e Cadence IES command for compile: ncverilog +access+rwc -compile fa.v
 	After elaboration the file will come under snapshot. Select the test bench and elaborate it.
 
 ### Fig 9: Elaboration Launch Option
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (5)](https://github.com/user-attachments/assets/4e299a5c-9c44-4db5-bb74-19c1ce2e0362)
 
 ## Step 3: Simulation: – Simulate with the given test vectors over a period of time to observe the output behaviour. 
 
@@ -167,10 +209,13 @@ i.e Cadence IES command for compile: ncverilog +access+rwc -compile fa.v
 	Steps for simulation – Run the simulation command with simulator options
 
 ### Fig 10: Design Browser window for simulation
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (6)](https://github.com/user-attachments/assets/c3bd6053-cd09-416a-ae48-cf220c15fb26)
 
 ### Fig 11: Launching Simulation Waveform WindowSimulation Waveform Window
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (7)](https://github.com/user-attachments/assets/753e445b-5158-4168-afca-0acaa23b7a5b)
 
 ### Fig 12: Simulation Waveform Window
+![WhatsApp Image 2025-05-16 at 5 47 41 PM (8)](https://github.com/user-attachments/assets/3508ba2d-8344-45f6-a2a5-9df89ff47aa4)
 
 ### Result:
 
